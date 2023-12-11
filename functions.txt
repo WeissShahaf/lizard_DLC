@@ -1,0 +1,180 @@
+activate DLC202202
+ipython
+import deeplabcut
+import os
+import tensorflow as tf
+import tensorflow 
+#from tensorflow.python.client import device_lib
+#print(device_lib.list_local_devices())
+##%env CUDA_DEVICE_ORDER=PCI_BUS_ID
+##%env CUDA_VISIBLE_DEVICES=0,1
+#gpu_devices = tf.config.experimental.list_physical_devices('GPU')
+#for device in gpu_devices:
+#    tf.config.experimental.set_memory_growth(device, True)
+#path_config_file=r'F:\DLC_proj\generalizard_multi-SW-2022-02-15\config.yaml'	
+#path_config_file = r'F:\DLC_proj\Multianimal2022-SW-2022-02-20\config.yaml'
+path_config_file=r'D:\DLC_projects\generalizard_Single-SW-2022-02-15\config.yaml'
+
+path_config_file=r'D:\DLC_projects\generalizard_Single-SW-2022-02-15\config.yaml'
+config_path=path_config_file
+path_config_file=config_path
+shuffle=4
+deeplabcut.train_network(path_config_file, shuffle=shuffle,max_snapshots_to_keep=11,gputouse=1,allow_growth=True)
+
+videos = [r'C:\Users\superuser\Videos\Cam1 20211119133345 112Table 4Kshort.mp4']
+videos = [r'F:\vids\Cam1 20211119133345 112Table 4K.mp4']
+videos = [r'C:\Users\superuser\Videos\Gl108420210601_short.mp4']
+videos = r'C:\Users\superuser\Videos\Cam1 20211119133345 112Table 4Kshort.mp4'
+#trainingsetindex=1
+#videos=[r'F:\vids\cam1_2021-10-25-12-02-30_112_4k.avi']
+videos=[r'F:\vids\cam1_2021-11-17-12-07-24_112_4k_circle.avi']
+deeplabcut.create_training_dataset(config_path, augmenter_type='imgaug',net_type = 'mobilenet_v2_1.0')
+deeplabcut.create_training_dataset(config_path,num_shuffles=1, augmenter_type='imgaug',net_type='resnet_101')
+shuffle_list = deeplabcut.create_training_model_comparison(config_path, num_shuffles=1,net_types=['resnet_50','resnet_101','mobilenet_v2_1.0','efficientnet-b0','efficientnet-b3'],augmenter_types=['imgaug'])
+
+#get path to the model configuration files
+shuffle=10
+trainingsetindex=1
+
+trainposeconfigfile,testposeconfigfile,snapshotfolder=deeplabcut.return_train_network_path(path_config_file,shuffle=shuffle)
+
+#load the training config file and change various parameters:
+cfg_dlc=deeplabcut.auxiliaryfunctions.read_plainconfig(trainposeconfigfile)
+
+cfg_dlc['scale_jitter_lo']= 0.5
+cfg_dlc['scale_jitter_up']=1.5
+
+cfg_dlc['augmentationprobability']=.5
+cfg_dlc['batch_size']=8 #pick that as large as your GPU can handle it
+cfg_dlc['elastic_transform']=True
+cfg_dlc['rotation']=180
+cfg_dlc['covering']=True
+cfg_dlc['motion_blur'] = True
+cfg_dlc['optimizer'] ="adam"
+cfg_dlc['dataset_type']='imgaug'
+cfg_dlc['multi_step']=[[1e-4, 7500], [5.0e-5, 12000], [1e-5, 50000]]
+cfg_dlc['global_scale']=0.33
+cfg_dlc['max_input_size']= 1350
+cfg_dlc['allow_growth']= True
+cfg_dlc['use_batch_norm']= True
+cfg_dlc['save_iters']= 25000
+#save it and then train the model!
+deeplabcut.auxiliaryfunctions.write_plainconfig(trainposeconfigfile,cfg_dlc)
+
+print("TRAIN NETWORK", shuffle)
+deeplabcut.train_network(path_config_file, shuffle=shuffle,max_snapshots_to_keep=11,gputouse=0,allow_growth=True)
+deeplabcut.evaluate_network(config_path,Shuffles=[3], gputouse=1,plotting=True)
+
+#deeplabcut.train_network(config_path, shuffle=1, trainingsetindex=0, gputouse=1, max_snapshots_to_keep=5, autotune=False, displayiters=500, saveiters=25000, maxiters=100000, allow_growth=True)
+
+deeplabcut.train_network(path_config_file, shuffle=shuffle,max_snapshots_to_keep=-1,gputouse=1,allow_growth=True)
+
+deeplabcut.evaluate_network(config_path,Shuffles=[3], gputouse=1,plotting=True)
+
+deeplabcut.extract_save_all_maps(config_path, shuffle=shuffle, Indices=[0, 5])
+
+videos=[r'F:\vids\cam1_2021-10-25-12-02-30_112_4k.avi']
+videos1 = [r'C:\Users\superuser\Videos\Gl108420210601_short.mp4']
+videos2= [r'C:\Users\superuser\Videos\wall_short_downsampled_sharp.mp4']
+deeplabcut.analyze_videos(config_path, videos, videotype='avi', shuffle=10, gputouse=1, save_as_csv=False, destfolder=None, dynamic=(True, .5, 20),batch_size=10,allow_growth=True)
+
+deeplabcut.analyze_videos(config_path,videos,shuffle=shuffle,gputouse=gputouse,save_as_csv=False,destfolder=None,dynamic=(True, 0.5, 20),batchsize=10,allow_growth=True,use_shelve=True)
+
+deeplabcut.analyze_videos(config_path, videos,shuffle=shuffle, gputouse=0, save_as_csv=True,allow_growth=True,auto_track=True,videotype="mp4")
+
+deeplabcut.analyzeskeleton(config,videos,videotype="mp4",shuffle=shuffle,save_as_csv=True,destfolder=None,filtered=True)
+ 
+deeplabcut.extract_outlier_frames(config_path, videos, shuffle=3)
+
+deeplabcut.filterpredictions(config_path, ['fullpath/analysis/project/videos/reachingvideo1.avi'], shuffle=1, trainingsetindex=0, comparisonbodyparts='all', filtertype='arima', p_bound=0.01, ARdegree=3, MAdegree=1, alpha=0.01)
+#OR
+deeplabcut.filterpredictions(config_path,videos, videotype='.avi',filtertype= 'arima',ARdegree=5,MAdegree=2)
+
+deeplabcut.filterpredictions(config_path,videos,shuffle=3)
+
+deeplabcut.plot_trajectories(config_path, videos,shuffle=3)
+
+
+deeplabcut.SkeletonBuilder(config_path)
+
+deeplabcut.create_labeled_video(config_path,videos,shuffle = shuffle, draw_skeleton = False)
+#OR
+deeplabcut.create_labeled_video(config_path,videos,keypoints_only=False,filtered=True,displaycropped=True)
+deeplabcut.create_labeled_video(config_path,videos,shuffle = 3,filtered=True)
+
+
+#videotype: string, optional. Checks for the extension of the video in case the input is a directory. Only videos with this extension are analyzed. The default is ``.avi``
+#save_frames: bool (i.e. True or False). If true creates each frame individually and then combines into a video. This variant is relatively slow as it stores all individual frames. However, it uses matplotlib to create the frames and is therefore much more flexible (one can set transparency of markers, crop, and easily customize).
+#delete: bool (i.e. True or False). If true then the individual frames created during the video generation will be deleted.
+#displayedbodyparts: list of strings, optional. This selects the body parts that are plotted in the video. Either `all`, then all body parts from config.yaml are used or a list of strings that are a subset of the full list. E.g. ['Hand','Joystick'] for the demo Reaching-Mackenzie-2018-08-30/config.yaml to select only these two body parts.
+#displaycropped: If =True then the video will be cropped (to the size in  the config.yaml file) and points plotted.
+
+deeplabcut.analyzeskeleton(config, video, videotype='avi', shuffle=1, trainingsetindex=0, save_as_csv=False, destfolder=None)
+#head direction and distances between points:
+#https://github.com/AlexEMG/DeepLabCut/blob/master/deeplabcut/post_processing/analyze_skeleton.py
+
+deeplabcut.plot_trajectories(config_path, [‘fullpath/analysis/project/videos/reachingvideo1.avi’])
+
+deeplabcut.extract_outlier_frames(config_path, videos)
+#outlieralgorithm: 'fitting', 'jump', or 'uncertain'``
+deeplabcut.extract_outlier_frames(config_path, videos, outlieralgorithm='manual')
+deeplabcut.refine_labels(config_path)
+
+
+deeplabcut.merge_datasets(config_path)
+
+#train again
+
+deeplabcut.export_model(config_path, iteration=5, shuffle=1, snapshotindex='all')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#helper functions
+
+deeplabcut.analyze_videos_converth5_to_csv
+
+deeplabcut.mergeandsplit
+
+deeplabcut.analyze_time_lapse_frames
+
+deeplabcut.convertcsv2h5
+
+deeplabcut.ShortenVideo
+
+deeplabcut.DownSampleVideo
+
+deeplabcut.CropVideo
+
+deeplabcut.adddatasetstovideolistandviceversa
+
+deeplabcut.comparevideolistsanddatafolders
+
+deeplabcut.dropannotationfileentriesduetodeletedimages
+ 
+deeplabcut.dropduplicatesinannotatinfiles
+
+deeplabcut.load_demo_data
+
+deeplabcut.merge_datasets
+
+deeplabcut.export_model
+
+
+config_path = rF:\DLC_proj\generalizard_multi-SW-2022-02-15\config.yaml'
+deeplabcut.convert2_maDLC(path_config_file, userfeedback=True)
+
+videos = [r'F:\VidInfer_in\Cam1 2021-04-15-07-42-30 112 4K.mp4']
+
+

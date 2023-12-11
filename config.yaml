@@ -1,0 +1,257 @@
+    # Project definitions (do not edit)
+Task: generalizard_Single
+scorer: SW
+date: Feb15
+multianimalproject: false
+identity:
+
+    # Project path (change when moving around)
+project_path: D:\DLC_projects\generalizard_Single-SW-2022-02-15
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  D:\DLC_projects\vids\cam1_2021-10-25-12-02-30_112_4k_masked.mp4:
+    crop: 32, 2062, 223, 2336
+  D:\DLC_projects\vids\GL999_circl1_cam1_20210708_112_4k_masked_brightened.mp4:
+    crop: 1178, 3282, 239, 2364
+  D:\DLC_projects\vids\GL999_circle1_cam1_2021-07-11-10-50-49_112_4k_masked.mp4:
+    crop: 1137, 3214, 225, 2288
+  D:\DLC_projects\vids\GL999_circle2_cam1_2021-07-08-11-32-32_112_4k_masked.mp4:
+    crop: 1151, 3187, 252, 2336
+  D:\DLC_projects\vids\GL999_circle2_cam1_2021-07-11-10-50-49_112_4k_masked_brightened.mp4:
+    crop: 1109, 3187, 191, 2343
+  D:\DLC_projects\vids\GL999_circle3_cam1_2021-07-08-11-32-32_112_4k_masked.mp4:
+    crop: 1103, 3214, 266, 2281
+  D:\DLC_projects\vids\GL999_circle3_cam1_2021-07-11-10-50-49_112_4k_masked_brightened.mp4:
+    crop: 1130, 3200, 184, 2357
+  D:\DLC_projects\vids\GL1084_cam1_20210601_circle1_112_4k_overlay_full_brightened.mp4:
+    crop: 1116, 3214, 177, 2309
+#  D:\DLC_projects\vids\cam0_2021-01-14-13-48-36112_4kcxp.avi:
+#    crop: 0, 4000, 0, 3000
+#  D:\DLC_projects\vids\cam0_2021-01-14-14-05-34112_4kcxp.avi:
+#    crop: 0, 4000, 0, 3000
+#  D:\DLC_projects\vids\cam1_2021-01-14-12-49-04_112_4k.avi:
+#    crop: 0, 3400, 0, 2500
+#  D:\DLC_projects\vids\cam1_2021-01-14-13-06-02_112_4k.avi:
+#    crop: 0, 3400, 0, 2500
+  F:\vids\Cam1 20211119133345 112Table 4K.mp4:
+    crop: 0, 1280, 0, 720
+  C:\Users\superuser\Videos\wall_short_downsampled_sharp_nvenc.mp4:
+    crop: 0, 1280, 0, 720
+  F:\vids\Cam0 20211126153607 112 Cxp.mp4:
+    crop: 0, 1280, 0, 720
+  C:\Users\superuser\Videos\Cam1 2021-10-25-12-02-30 112 4K.mp4:
+    crop: 0, 720, 0, 576
+  F:\vids\cam1_2021-10-25-12-02-30_112_4kHalf.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\VidInfer_in\cam1_2021-10-25-12-02-30_112_4kHalf.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\cam0_2021-10-25-12-02-32_112_CXP_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\cam0_20211117_120214_112_circle2_CXP.avi:
+    crop: 0, 2560, 0, 2560
+  F:\vids\downsampled\cam0_20211117_120214_112_circle2_CXP_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\cam1_2021-10-25-09-49-36_112_4k_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\cam1_2021-10-25-10-52-36_112_4k_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\cam1_2021-10-27-13-43-02_112_4k_circle.avi:
+    crop: 0, 2560, 0, 2560
+  F:\vids\downsampled\cam1_2021-11-17-12-07-24_112_4k_circle_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\cam1_GL1178_40LUX_20211122_112_4k_circle_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\GL1178_cam0_20211117_112_CIRCLE1_CXP_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\GL1178_cam0_20211117_125951_112_circle3_CXP_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\GL1178_cam1_20211117_circle3_112_circle3_4k_circle_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\GL1178_dim16_cam1_20211124_133352_112_4k_circle_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\GL1178cam1_20211117_1106_112_4k_circle1_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\VidInfer_in\downsampled\Cam1 2021-04-15-07-42-30 112 4K.mp4:
+    crop: 0, 1280, 0, 720
+  F:\VidInfer_in\downsampled\Cam1 2021-04-15-07-58-35 112 4K.mp4:
+    crop: 0, 1280, 0, 720
+  F:\VidInfer_in\downsampled\Cam1 2021-04-19-12-34-51 112 4K.mp4:
+    crop: 0, 1280, 0, 720
+  F:\VidInfer_in\downsampled\Cam1 2021-04-20-07-40-03 112 4K.mp4:
+    crop: 0, 1280, 0, 720
+bodyparts:
+- Red
+- LeftHand
+- LeftLeg
+- Pelvis
+- P_2
+- P_4
+- nose
+- Green
+- RightHand
+- RightLeg
+start: 0
+stop: 1
+numframes2pick: 20
+
+    # Plotting configuration
+skeleton:
+- - nose
+  - Red
+- - nose
+  - Green
+- - Red
+  - Green
+- - nose
+  - P_4
+- - P_4
+  - LeftHand
+- - P_4
+  - RightHand
+- - P_4
+  - P_2
+- - P_2
+  - Pelvis
+- - Pelvis
+  - RightLeg
+- - Pelvis
+  - LeftLeg
+
+skeleton_color: white
+pcutoff: 0.6
+dotsize: 8
+alphavalue: 0.7
+colormap: jet
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 5
+default_net_type: resnet_50
+default_augmenter: default
+snapshotindex: -1
+batch_size: 10
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 0
+- 0
+move2corner: true
+F:\vids\cam1_2021-10-25-09-49-36_112_4kHalf.mp4:
+  crop: 0, 1280, 0, 1280
+  C:\Users\superuser\Videos\Cam1 2020-07-26-11-30-49 112 4K_1080p.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\superuser\Videos\Cam1 Gl707 20210602Circle2 112 4K.mp4:
+    crop: 0, 1920, 0, 1080
+  F:\VidInfer_in\Cam1 2020-07-26-11-30-49 112 4K_1080p.mp4:
+    crop: 0, 1920, 0, 1080
+  F:\VidInfer_in\Cam1 Gl707 20210602Circle2 112 4K.mp4:
+    crop: 0, 1920, 0, 1080
+  F:\VidInfer_in\Cam1 Gl707 20210602 Circle3 112 4K.mp4:
+    crop: 0, 1280, 0, 720
+  F:\VidInfer_in\Cam1 2021-04-20-07-40-03 112 4K.mp4:
+    crop: 0, 1280, 0, 720
+  F:\VidInfer_in\Cam1 2021-04-15-07-58-35 112 4K.mp4:
+    crop: 0, 1250, 0, 720
+  F:\VidInfer_in\Cam1 Gl707 20210602 Circle3 112 4K_1080p.mp4:
+    crop: 0, 1920, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-10-22-13-59-07 112 4Koutput_.mp4:
+    crop: 0, 992, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-02-10-11-52-05 112 4Koutput_.mp4:
+    crop: 0, 1440, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-02-15-12-12-39 112 4Koutput_.mp4:
+    crop: 0, 960, 0, 720
+  F:\VAMEvids\output\Cam1 2021-02-15-12-12-39 112 4Koutput1.mp4:
+    crop: 0, 1410, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-02-19-09-49-47 112 4Koutput_.mp4:
+    crop: 0, 1440, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-02-22-12-56-24 112 4Koutput_.mp4:
+    crop: 0, 1440, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-09-18-12-55-50 112 4Koutput_.mp4:
+    crop: 0, 1080, 0, 1080
+#  F:\VAMEvids\output\Cam1 2021-09-18-13-11-10 112 4Koutput_.mp4:
+#    crop: 0, 1040, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-10-25-09-49-36 112 4Koutput_.mp4:
+    crop: 0, 1032, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-10-25-10-52-36 112 4Koutput_.mp4:
+    crop: 0, 1000, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-10-27-13-43-02 112 4K Circleoutput_.mp4:
+    crop: 0, 1058, 0, 1080
+#  F:\VAMEvids\output\Cam1 2022-03-16-13-03-50 112 4Koutput_.mp4:
+#    crop: 0, 1108, 0, 1080
+  F:\VAMEvids\output\Cam1 Gl707 20210602 Circle3 112 4Koutput_.mp4:
+    crop: 0, 748, 0, 720
+  F:\VAMEvids\output\Cam1 Gl1112 20210814 Circle1 112 4Koutput_.mp4:
+    crop: 0, 1054, 0, 1080
+  F:\VAMEvids\output\Cam1gl1112 Circle3 20210814 112 4Koutput_.mp4:
+    crop: 0, 1106, 0, 1080
+  F:\VAMEvids\output\Gl1095 Of Wood 4Koutput_.mp4:
+    crop: 0, 1440, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-01-14-10-39-05 112 4Koutput_.mp4:
+    crop: 0, 1440, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-01-28-11-43-01 112 4Koutput_.mp4:
+    crop: 0, 1440, 0, 1080
+  F:\VAMEvids\output\Cam1 2021-02-06-13-07-48 112 4Koutput_.mp4:
+    crop: 0, 1440, 0, 1080
+  F:\VAMEvids\GL1155_cam1_2022-03-18-13-49-03_112_circle2_4k_handbrake.mp4:
+    crop: 0, 640, 0, 720
+  F:\VAMEvids\GL1155_cam1_20220318_circle1A_112_4k_handbrake.mp4:
+    crop: 0, 720, 0, 720
+  F:\VAMEvids\GL1155_cam2_2022-03-18-13-49-03_112_circle2_CXP_handbrake (1).mp4:
+    crop: 0, 648, 0, 720
+  F:\VAMEvids\GL1155_cam2_2022-03-18-13-49-03_112_circle2_CXP_handbrake.mp4:
+    crop: 0, 648, 0, 720
+  F:\VAMEvids\GL1155_cam2_20220318_circle1A_112_CXP_handbrake.mp4:
+    crop: 0, 684, 0, 720
+  F:\VAMEvids\GL115_cam1_2022-03-18-14-40-28_112_circle3_4k_handbrake.mp4:
+    crop: 0, 710, 0, 720
+  F:\VAMEvids\GL115_cam2_2022-03-18-14-40-28_112_circle3_CXP_handbrake.mp4:
+    crop: 0, 690, 0, 720
+  F:\VidInfer_out\Cam0 2021-01-21-13-17-10112 4Kcxpoutput_.mp4:
+    crop: 0, 1138, 0, 1080
+  F:\VidInfer_out\Cam0 2021-01-14-11-38-36112 4Kcxpoutput_.mp4:
+    crop: 0, 1440, 0, 1080
+  F:\VidInfer_out\Gl115 20220311 A 112 Cxpoutput_.mp4:
+    crop: 0, 1062, 0, 1080
+  F:\VidInfer_out\Gl1050 Cam2 2021021212 1 112 4Kcxpoutput_.mp4:
+    crop: 0, 1428, 0, 1080
+  F:\vids\downsampled\cam0_2021-10-25-12-02-32_112_CXP_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\cam0_20211117_120214_112_circle2_CXP.avi:
+    crop: 0, 2560, 0, 2560
+  F:\vids\downsampled\cam0_20211117_120214_112_circle2_CXP_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\cam1_2021-10-25-09-49-36_112_4k_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\cam1_2021-10-25-10-52-36_112_4k_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  D:\DLC_projects\vids\cam1_2021-01-14-13-06-02_112_4k.avi:
+    crop: 0, 3400, 0, 2500
+  F:\vids\downsampled\cam1_GL1178_40LUX_20211122_112_4k_circle_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\GL1178_cam0_20211117_112_CIRCLE1_CXP_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\GL1178_cam0_20211117_125951_112_circle3_CXP_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\GL1178_cam1_20211117_circle3_112_circle3_4k_circle_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\GL1178_dim16_cam1_20211124_133352_112_4k_circle_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\vids\downsampled\GL1178cam1_20211117_1106_112_4k_circle1_HalfMed.mp4:
+    crop: 0, 1280, 0, 1280
+  F:\VidInfer_in\downsampled\Cam1 2021-04-15-07-42-30 112 4K.mp4:
+    crop: 0, 1280, 0, 720
+  F:\VidInfer_in\downsampled\Cam1 2021-04-15-07-58-35 112 4K.mp4:
+    crop: 0, 1280, 0, 720
+  F:\VidInfer_in\downsampled\Cam1 2021-04-19-12-34-51 112 4K.mp4:
+    crop: 0, 1280, 0, 720
+
