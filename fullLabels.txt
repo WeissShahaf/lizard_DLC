@@ -1,0 +1,1 @@
+RedX,RedY,RedC,LeftHandX,LeftHandY,LeftHandC,LeftLegX,LeftLegY,LeftLegC,PelvisX,PelvisY,PelvisC,P_2X,P_2Y,P_2C,P_4X,P_4Y,P_4C,noseX,noseY,noseC,GreenX,GreenY,GreenC,RightHandX,RightHandY,RightHandC,RightLegX,RightLegY,RightLegC
